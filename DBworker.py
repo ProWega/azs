@@ -38,8 +38,17 @@ class DBparser:
         cursor.execute('''SELECT * FROM station_company''')
         station_company = cursor.fetchall()
         id_stations = [el[0] for el in station_company]
-        name_company = [el[1] for el in station_company]
-        self.station_companyname_from_id_station = dict(zip(id_stations, name_company))
+        id_company = [el[1] for el in station_company]
+
+        cursor.execute('''SELECT * FROM company''')
+        company = cursor.fetchall()
+        id_company_company = [el[0] for el in company]
+        name_company = [el[1] for el in company]
+        self.id_company_to_name_company = dict(zip(id_company_company, name_company))
+        self.name_company_to_id_company = dict(zip(name_company, id_company_company))
+
+        self.id_company_from_id_station = dict(zip(id_stations, id_company))
+
 
         connection.commit()
         connection.close()
@@ -60,7 +69,8 @@ class DBparser:
         station_links = [self.station_links_from_id[el[0]] for el in price_table]
         oil_names = [self.oil_name_from_oil_id[el[1]] for el in price_table]
         dates = [datetime.datetime.fromtimestamp(el[2]).strftime('%d-%m-%Y') for el in price_table]
-        name_station = [self.station_companyname_from_id_station[el[0]] for el in price_table]
+        id_company_of_station = [self.id_company_from_id_station[el[0]] for el in price_table]
+        name_station = [self.id_company_to_name_company[el] for el in id_company_of_station]
         price_values = [el[3] for el in price_table]
 
         connection.commit()

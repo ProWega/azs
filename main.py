@@ -19,7 +19,7 @@ app = Dash(__name__)
 app.layout = html.Div([
     html.Div(children='Положение дел сегодня'),
     html.Hr(),
-    dcc.RadioItems(options=db.oil_types_names, value=db.oil_types_names[0], id='controls-and-radio-item'),
+    dcc.RadioItems(options=db.oil_types_names, value=db.oil_types_names[0], inline=True, id='controls-and-radio-item'),
     #dcc.DatePickerSingle(
     #    id='my-date-picker-single',
     #    min_date_allowed=date(2023, 9, 24),
@@ -28,7 +28,7 @@ app.layout = html.Div([
     #   date=date(today.year, today.month, today.day)
     #),
     html.Div(id='output-container-date-picker-single'),
-    dash_table.DataTable(data=df.to_dict('records'), page_size=6, id='table'),
+    dash_table.DataTable(data=df.to_dict('records'), page_size=6, sort_action='native', id='table'),
     dcc.Graph(figure={}, id='controls-and-graph')
 ])
 
@@ -73,4 +73,4 @@ def update_output(date_value):
 
 
 if __name__ == '__main__':
-    app.run(debug=False)
+    app.run(debug=True)
