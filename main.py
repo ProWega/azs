@@ -43,7 +43,7 @@ dbc.CardBody(
 all_companies_content = dbc.Card(
 dbc.CardBody(
         dcc.Graph(
-            id='independent_last_update_main_bar',
+            id='all_companies_last_update_main_bar',
             figure=charts_utils.GetIndependentBarPlotLastUpdate()
         )
     )
