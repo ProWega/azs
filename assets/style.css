@@ -1,0 +1,14 @@
+$color-1: #364670;
+$color-2: #242E4C;
+$color-3: #455584;
+$color-4: #334266;
+$color-5: #2D3A5E;
+$color-6: #232531;
+$color-7: #a2aacd;
+$color-8: #5b70c3;
+$color-9: #444663;
+
+body{
+  margin: auto;
+  background: linear-gradient(to left, $color-1, lighten($color-1, 20%));
+}

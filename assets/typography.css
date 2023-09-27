@@ -1,0 +1,35 @@
+body {
+    
+
+}
+.some .dash-table-container .dash-spreadsheet-container .dash-spreadsheet-inner td {
+    background-color: transparent;
+}
+
+.table table-main-fuel {
+	display: table;
+	width: 100%;
+	border: none;
+	margin-bottom: 20px;
+}
+.table thead th {
+	padding: 50px;
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 20px;
+	text-align: left;
+	color: #444441;
+	border-top: 2px solid #716561;
+	border-bottom: 2px solid #716561;
+}
+}
+.td{
+	padding: 40px;
+	font-size: 36px;
+	line-height: 20px;
+	color: #444441;
+	border-top: 1px solid #716561;
+}
+.main-fuel-table-tr {
+	padding: 40px;
+}
