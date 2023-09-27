@@ -99,7 +99,7 @@ def CreateFuelMainLInes():
                         md=3)
 
             ])
-        ], color='light', id='btn', n_clicks=0, className="card-button")
+        ], color='light', n_clicks=0, className="card-button")
         lines.append(card)
     return dbc.Row(children=lines)
 def CreateMainTableHtml():

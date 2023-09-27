@@ -48,13 +48,26 @@ dbc.CardBody(
         )
     )
 )
-
+azs_count = len(data_worker.main_df['Ссылка'].unique())
 #last_refresh_date = data_utils.DateFromTimeStamp(data_worker.main_df['Дата'].values.max())
 app.layout = html.Div([
+    html.H1(children=f'Цены на топливо в Нижегородской области {data_utils.StringFromDate(pd.to_datetime(data_worker.max_date))} по {azs_count} АЗС', id='test'),
+    dbc.Row(children=[
+    dbc.Button([
+                dbc.Row([
 
+                    dbc.Col(children=[html.H5(children="Тип топлива")], md=3),
+                    dbc.Col(children=[html.H5(children="Мин", className="price-value-main-page-card")],
+                            md=3),
+                    dbc.Col(children=[html.H5(children="Макс", className="price-value-main-page-card")],
+                            md=3),
+                    dbc.Col(children=[html.H5(children="Средн", className="price-value-main-page-card")],
+                            md=3)
 
-
-    html.H1(children=f'Цены на топливо в Нижегородской области {data_utils.StringFromDate(pd.to_datetime(data_worker.max_date))}', id='test'),
+                ]),
+            charts_utils.CreateFuelMainLInes()
+        ], disabled=True, color='light')
+    ], style={'margin': "20px"}),
     dbc.Row(children=[
         dbc.Tabs([
             dbc.Tab(wink_content, label='ВИНК компании'),
