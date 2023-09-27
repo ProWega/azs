@@ -7,7 +7,7 @@ import sqlite3
 import datetime
 from datetime import date
 import charts_utils
-# import dash_defer_js_import as defer_load
+
 import dash_bootstrap_components as dbc
 
 import data_utils
