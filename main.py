@@ -11,6 +11,7 @@ import charts_utils
 import dash_bootstrap_components as dbc
 
 import data_utils
+import flask
 
 today = datetime.date.today()
 # current_type_oil = db.oil_types_names[0]
@@ -21,6 +22,7 @@ today = datetime.date.today()
 # data = GetDataPriceTableFromDB()
 external_scripts = ['scripts/card.js']
 app = Dash(__name__, assets_ignore='.*ignored.*', external_stylesheets=[dbc.themes.BOOTSTRAP])
+server = app.server
 app.server.static_folder = 'static'
 data_worker = data_utils.DataWorker()
 
@@ -105,4 +107,5 @@ def on_click_btn(n):
 '''
 
 if __name__ == '__main__':
-    app.run('0.0.0.0',debug=False)
+    server = flask.Flask(__name__)
+    app.run('0.0.0.0', server=server, debug=False)
